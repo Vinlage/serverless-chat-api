@@ -9,3 +9,4 @@ aws --endpoint-url=http://localhost:4566 lambda invoke \
   --payload "$PAYLOAD_B64" \
   --profile localstack \
   response.json
+read
