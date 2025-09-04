@@ -1,5 +1,13 @@
 exports.handler = async (event) => {
-  const text = event.text || "";
-  const wordCount = text.split(/\s+/).filter(Boolean).length;
-  return { text, wordCount };
+    const text = JSON.parse(event.body).text;
+
+    // Example logic
+    const wordCount = text.split(" ").length;
+
+    // Correct proxy response
+    return {
+        statusCode: 200,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, wordCount })
+    };
 };
